@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Form from "./Form";
 import List from "./List";
-import Footer from "./Footer";
+import Footer  from "./Footer";
 
 function App() {
     const [list, setList] = useState([
@@ -28,6 +28,13 @@ function App() {
         });
     };
 
+    const clearListHandler = () => {
+        let confirm = window.confirm("Do you want to delete all the items?");
+        if (confirm) {
+            setList([]);
+        }
+    };
+
     return (
         <div className="app">
             <h1>Travel list</h1>
@@ -36,6 +43,7 @@ function App() {
                 listItems={list}
                 deleteItemHandler={removeItem}
                 completeItemHandler={setCompletionHandler}
+                onClearList={clearListHandler}
             />
             <Footer listItems={list} />
         </div>

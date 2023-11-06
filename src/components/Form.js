@@ -24,7 +24,7 @@ const Form = ({ addItemHandler }) => {
     const submit_form = (e) => {
         e.preventDefault();
         addItemHandler({
-            id: Math.floor(Math.random() * 10000),
+            id: Date.now(),
             count,
             item,
             completed: false,
